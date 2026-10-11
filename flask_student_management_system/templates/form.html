@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ heading }} | Student Manager{% endblock %}
+{% block content %}
+<h1>{{ heading }}</h1><p class="muted">Enter the student details below.</p>
+<section class="panel">
+<form method="post">
+  <label for="name">Full name</label>
+  <input id="name" name="name" maxlength="100" required value="{{ student.name if student else '' }}" placeholder="Student full name">
+  <label for="email">Email address</label>
+  <input id="email" name="email" type="email" maxlength="120" required value="{{ student.email if student else '' }}" placeholder="name@example.com">
+  <label for="course">Course</label>
+  <input id="course" name="course" maxlength="100" required value="{{ student.course if student else '' }}" placeholder="Python Full Stack">
+  <button class="btn" type="submit">Save student</button>
+  <a class="btn secondary" href="{{ url_for('index') }}">Cancel</a>
+</form>
+</section>
+{% endblock %}
